@@ -3,10 +3,12 @@ class CalendarsController < ApplicationController
   # １週間のカレンダーと予定が表示されるページ
   def index
     get_week
+
     @plan = Plan.new
   end
 
   def new
+
     @plan = Plan.new
   end
 
@@ -38,6 +40,7 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
+
 
       wdays_num = (@todays_date + x).wday
       if wdays_num >= 7
